@@ -1,6 +1,7 @@
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
+  console.log(res)
   res.render('admin/add-product', {
     pageTitle: 'Add Product',
     path: '/admin/add-product',
