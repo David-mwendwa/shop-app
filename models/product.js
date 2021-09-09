@@ -22,7 +22,7 @@ module.exports = class Product {
     this.title = title;
     this.imageUrl = imageUrl;
     this.description = description;
-    this.price = price
+    this.price = price;
   }
 
   save() {
@@ -38,5 +38,12 @@ module.exports = class Product {
 
   static fetchAll(cb) {
     getProductsFromFile(cb);
+  }
+
+  static findById(id, cb) {
+    getProductsFromFile((product) => {
+      const product = products.find((p) => p.id === id);
+      cb(product);
+    });
   }
 };
